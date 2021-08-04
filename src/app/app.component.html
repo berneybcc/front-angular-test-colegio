@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="display-2 mb-4">Test Java Colegio</h1>
+    </div>
+  </div>
+  <div class="row">
+    <search-profesor (docente)="id_docente=$event"></search-profesor>
+  </div>
+  <div class="row">
+    <list-asignaturas [info]="id_docente"></list-asignaturas>
+  </div>
+</div>

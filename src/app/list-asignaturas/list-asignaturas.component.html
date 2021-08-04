@@ -1,0 +1,41 @@
+<div class="card mb-2 p-4">
+    <div *ngFor="let item of info">
+        <div class="row">
+            <div class="col"><h3>{{item.nombre}}</h3></div>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let datos of item.asignaturas">
+                <div class="row">
+                    <div class="col">{{datos.nombre}}</div>
+                    <div class="col text-center">{{datos.curso.grado}}{{datos.curso.salon}}</div>
+                    <div class="col-4 text-end">
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)=cargarEstuId(datos.id)>
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Estudiantes <span *ngIf="datosEstudiante">de {{datosEstudiante.nombre}} - {{datosEstudiante.curso.grado}}{{datosEstudiante.curso.salon}}</span></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group" *ngIf="datosEstudiante">
+          <li class="list-group-item" *ngFor="let estu of datosEstudiante.estudiantes">
+            {{ estu.nombre }}
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
